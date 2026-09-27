@@ -98,6 +98,11 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
   position:relative;
   width:100%;
   line-height:0;
+  overflow:hidden;
+}
+.hero-img::after{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at center, transparent 55%, var(--bg) 100%);
 }
 .hero-img img{
   width:100%;
@@ -113,7 +118,7 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
   position:absolute;left:0;right:0;bottom:0;
   padding:40px;line-height:normal;
   background:linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 100%);
-  pointer-events:none;color:#fff;
+  pointer-events:none;color:#fff;z-index:2;
 }
 .hero-role{
   font-family:'Cormorant Garamond',serif;font-weight:300;
@@ -125,6 +130,10 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
   font-family:'Cormorant Garamond','Pretendard',serif;font-weight:300;
   font-size:1.6rem;letter-spacing:0.3em;line-height:1.2;
   color:#fff;margin:0;
+}
+@media(min-width:768px){
+  .hero-img{width:auto;max-width:100%;height:calc(100vh - 48px);aspect-ratio:2736/3648;margin:0 auto;}
+  .hero-img img{width:100%;height:100%;max-height:none;object-fit:cover;object-position:center;}
 }
 .hero-content{
   padding:80px 60px;

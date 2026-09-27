@@ -116,12 +116,13 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
 }
 .hero-role{
   font-family:'Cormorant Garamond',serif;font-weight:300;
-  font-size:0.72rem;letter-spacing:0.28em;text-transform:uppercase;
-  color:rgba(255,255,255,0.85);margin:0 0 10px;
+  font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;white-space:nowrap;
+  color:rgba(255,255,255,0.85);margin:0 0 12px;
 }
+.hero-name .kr{font-family:'Pretendard',sans-serif;font-weight:200;font-size:1.35rem;}
 .hero-name{
-  font-family:'Cormorant Garamond',serif;font-weight:300;
-  font-size:1.5rem;letter-spacing:0.12em;line-height:1.2;
+  font-family:'Cormorant Garamond','Pretendard',serif;font-weight:300;
+  font-size:1.6rem;letter-spacing:0.3em;line-height:1.2;
   color:#fff;margin:0;
 }
 .hero-content{
@@ -216,7 +217,9 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
 
 @media(max-width:900px){
   .hero-overlay{padding:24px;}
-  .hero-name{font-size:1.2rem;}
+  .hero-role{font-size:0.5rem;letter-spacing:0.14em;}
+  .hero-name{font-size:1.2rem;letter-spacing:0.22em;}
+  .hero-name .kr{font-size:1.05rem;}
   nav{padding:14px 16px;gap:8px;}
   
   
@@ -277,7 +280,7 @@ or:var(--muted);padding:4px 10px;border-radius:16px;
     <img src="assets/img/profile.jpg" alt="Genie 지세영">
     <div class="hero-overlay">
       <p class="hero-role">Contemporary Dance Creative Producer</p>
-      <h1 class="hero-name">지세영 / Genie</h1>
+      <h1 class="hero-name"><span class="kr">지세영</span> / Genie</h1>
     </div>
   </div>
   <div class="hero-content">

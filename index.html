@@ -102,11 +102,12 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
   width:100%;
   height:auto;
   display:block;
-  object-fit:cover;
   max-height:90vh;
+  object-fit:cover;
   object-position:center 20%;
+  transition:transform 0.9s ease;
 }
-.hero-img:hover img{transform:scale(1.03);transition:transform 0.9s ease;}
+.hero-img:hover img{transform:scale(1.03);}
 .hero-overlay{
   position:absolute;
   bottom:0;left:0;right:0;
@@ -116,7 +117,7 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
 }
 .hero-name{
   font-size:0.65rem;font-weight:300;
-  letter-spacing:0.12em;line-height:1;
+  letter-spacing:0.08em;line-height:1;
   margin-bottom:8px;
   color:rgba(255,255,255,0.9);
   font-family:'Cormorant Garamond',serif;
@@ -223,8 +224,8 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
   nav{padding:14px 16px;gap:8px;}
   
   
-  #hero{grid-template-columns:1fr;}
-  .hero-img{min-height:60vw;max-height:70vw;}
+  .hero-overlay{padding:24px 20px;}
+  .hero-name{font-size:0.55rem;letter-spacing:0.05em;}
   .hero-content{padding:40px 20px;}
   section{padding:56px 20px;}
   .meta-grid,.contact-grid{grid-template-columns:1fr;}
@@ -291,6 +292,7 @@ or:var(--muted);padding:4px 10px;border-radius:16px;
     <a class="hero-cta" href="#about">Explore</a>
   </div>
 </section>
+
 <section id="about">
   <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title"><span data-ko="소개" data-en="About">소개</span></h2></div>
   <div class="meta-grid">

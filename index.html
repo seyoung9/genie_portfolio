@@ -69,7 +69,7 @@ nav{
   --bg2:     #141414;
   --bg3:     #1C1C1C;
   --fg:      #EFEFED;
-  --accent:  #7EBFB0;
+  --accent:  #8B2020;
   --muted:   #7A7A7A;
   --border:  #272727;
   --white:   #F5F5F3;
@@ -101,7 +101,7 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
 .hero-img img{
   position:absolute;inset:0;
   width:100%;height:100%;
-  object-fit:cover;object-position:60% center;
+  object-fit:cover;object-position:center 20%;
   transition:transform 0.9s ease;
 }
 .hero-img:hover img{transform:scale(1.03);}
@@ -126,7 +126,7 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
   line-height:2;
 }
 
-.hero-name{font-size:1.8rem;font-weight:300;letter-spacing:0.25em;line-height:1;margin-bottom:6px;color:var(--fg);font-family:'Cormorant Garamond',serif;text-transform:uppercase;}
+.hero-name{font-size:clamp(0.9rem, 2vw, 1.2rem);font-weight:300;letter-spacing:0.25em;line-height:1;margin-bottom:6px;color:var(--fg);font-family:'Cormorant Garamond',serif;text-transform:uppercase;}
 .hero-kr{font-size:0.82rem;font-weight:300;letter-spacing:0.3em;color:var(--muted);margin-bottom:36px;}
 .hero-line{width:36px;height:2px;background:var(--accent);margin-bottom:28px;border-radius:1px;}
 .hero-bio{font-size:0.875rem;line-height:2;color:#888;max-width:400px;word-break:keep-all;}
@@ -222,7 +222,6 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
   #hero{grid-template-columns:1fr;}
   .hero-img{min-height:60vw;max-height:70vw;}
   .hero-content{padding:40px 20px;}
-  .hero-name{font-size:1.4rem;}
   section{padding:56px 20px;}
   .meta-grid,.contact-grid{grid-template-columns:1fr;}
   .yr-wrap{grid-template-columns:72px 1fr;}
@@ -307,7 +306,9 @@ or:var(--muted);padding:4px 10px;border-radius:16px;
 <section id="career">
   <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title"><span data-ko="경력" data-en="Career">경력</span></h2></div>
   <div class="yr-wrap"><div class="yr-label">2026</div><div class="yr-items">
-    <div class="yr-item fi"><p class="yr-role"><span data-ko="기획PD" data-en="Producer">기획PD</span></p><p class="yr-title"><span data-ko="LOOP 신작 기획공연 〈소년의 외침은 파도로 번져〉" data-en="LOOP New Work 〈A Boy's Cry Spreads into Waves〉 — Producer">LOOP 신작 기획공연 〈소년의 외침은 파도로 번져〉</span></p></div>
+    <div class="yr-item fi"><p class="yr-role"><span data-ko="기획•총괄" data-en="Creative Director">기획•총괄</span></p><p class="yr-title"><span data-ko="LOOP 신작 기획공연 〈소년의 외침은 파도로 번져〉" data-en="LOOP New Work 〈A Boy's Cry Spreads into Waves〉">LOOP 신작 기획공연 〈소년의 외침은 파도로 번져〉</span></p></div>
+    <div class="yr-item fi"><p class="yr-role"><span data-ko="기획•총괄" data-en="Creative Director">기획•총괄</span></p><p class="yr-title"><span data-ko="M극장/여니스트 컴퍼니 공동기획 공연 〈META M - BEYOND HUMAN〉" data-en="M Theater / Yeonist Company Co-produced Performance 〈META M - BEYOND HUMAN〉">M극장/여니스트 컴퍼니 공동기획 공연 〈META M - BEYOND HUMAN〉</span></p></div>
+    <div class="yr-item fi"><p class="yr-role"><span data-ko="현장운영" data-en="On-site Operations">현장운영</span></p><p class="yr-title"><span data-ko="국립생물자원관 관객참여형 무용 공연 〈너, 나, 우리〉" data-en="National Institute of Biological Resources Audience-Participatory Dance Performance 〈You, Me, Us〉">국립생물자원관 관객참여형 무용 공연 〈너, 나, 우리〉</span></p></div>
     <div class="yr-item fi"><p class="yr-role"><span data-ko="책임강사" data-en="Senior Instructor">책임강사</span></p><p class="yr-title"><span data-ko="여니스트컴퍼니 유니크월드 AI LAB" data-en="Yonist Company — Unique Worlds AI LAB">여니스트컴퍼니 유니크월드 AI LAB</span></p></div>
   </div></div>
   <div class="yr-wrap"><div class="yr-label">2025</div><div class="yr-items">

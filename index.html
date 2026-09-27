@@ -108,28 +108,6 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
   transition:transform 0.9s ease;
 }
 .hero-img:hover img{transform:scale(1.03);}
-.hero-overlay{
-  position:absolute;
-  bottom:0;left:0;right:0;
-  padding:40px 60px;
-  background:linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
-  pointer-events:none;
-}
-.hero-name{
-  font-size:0.65rem;font-weight:300;
-  letter-spacing:0.08em;line-height:1;
-  margin-bottom:8px;
-  color:rgba(255,255,255,0.9);
-  font-family:'Cormorant Garamond',serif;
-  text-transform:uppercase;
-  white-space:nowrap;
-}
-.hero-kr{
-  font-size:0.9rem;font-weight:300;
-  letter-spacing:0.3em;
-  color:rgba(255,255,255,0.75);
-  margin:0;
-}
 .hero-content{
   padding:80px 60px;
 }
@@ -224,8 +202,6 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
   nav{padding:14px 16px;gap:8px;}
   
   
-  .hero-overlay{padding:24px 20px;}
-  .hero-name{font-size:0.55rem;letter-spacing:0.05em;}
   .hero-content{padding:40px 20px;}
   section{padding:56px 20px;}
   .meta-grid,.contact-grid{grid-template-columns:1fr;}
@@ -281,10 +257,6 @@ or:var(--muted);padding:4px 10px;border-radius:16px;
 <section id="hero">
   <div class="hero-img">
     <img src="assets/img/profile.jpg" alt="Genie 지세영">
-    <div class="hero-overlay">
-      <h1 class="hero-name">Contemporary Dance Creative Producer</h1>
-      <p class="hero-kr"><span data-ko="지세영" data-en="Seyoung Ji">지세영</span></p>
-    </div>
   </div>
   <div class="hero-content">
     <div class="hero-line"></div>

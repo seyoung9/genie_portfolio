@@ -122,6 +122,8 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
   font-size:min(clamp(11px, 3.4vw, 18px), calc(100cqw / 25));letter-spacing:0.04em;word-spacing:0.35em;text-transform:uppercase;white-space:nowrap;overflow:visible;text-shadow:0 1px 8px rgba(0,0,0,0.8);
   color:rgba(255,255,255,0.95);margin:0 0 12px;
 }
+.hero-rule{width:36px;height:1px;background:var(--accent);margin:0 0 12px;border-radius:1px;}
+.hero-name .slash{color:var(--accent);}
 .hero-name .kr{font-family:'Pretendard',sans-serif;font-weight:200;font-size:1.35rem;}
 .hero-name{
   font-family:'Cormorant Garamond','Pretendard',serif;font-weight:300;
@@ -309,8 +311,9 @@ or:var(--muted);padding:4px 10px;border-radius:16px;
   <div class="hero-img">
     <div class="hero-photo"><img src="assets/img/profile.jpg" alt="Genie 지세영"></div>
     <div class="hero-overlay">
+      <div class="hero-rule"></div>
       <p class="hero-role">Contemporary Dance Creative Producer</p>
-      <h1 class="hero-name"><span class="kr">지세영</span> / Genie</h1>
+      <h1 class="hero-name"><span class="kr">지세영</span> <span class="slash">/</span> Genie</h1>
     </div>
   </div>
   <div class="hero-content">

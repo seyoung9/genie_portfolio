@@ -108,6 +108,22 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
   transition:transform 0.9s ease;
 }
 .hero-img:hover img{transform:scale(1.03);}
+.hero-overlay{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:40px;line-height:normal;
+  background:linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 100%);
+  pointer-events:none;color:#fff;
+}
+.hero-role{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:0.72rem;letter-spacing:0.28em;text-transform:uppercase;
+  color:rgba(255,255,255,0.85);margin:0 0 10px;
+}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:1.5rem;letter-spacing:0.12em;line-height:1.2;
+  color:#fff;margin:0;
+}
 .hero-content{
   padding:80px 60px;
 }
@@ -199,6 +215,8 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
 .fi.v{opacity:1;transform:translateY(0);}
 
 @media(max-width:900px){
+  .hero-overlay{padding:24px;}
+  .hero-name{font-size:1.2rem;}
   nav{padding:14px 16px;gap:8px;}
   
   
@@ -257,6 +275,10 @@ or:var(--muted);padding:4px 10px;border-radius:16px;
 <section id="hero">
   <div class="hero-img">
     <img src="assets/img/profile.jpg" alt="Genie 지세영">
+    <div class="hero-overlay">
+      <p class="hero-role">Contemporary Dance Creative Producer</p>
+      <h1 class="hero-name">지세영 / Genie</h1>
+    </div>
   </div>
   <div class="hero-content">
     <div class="hero-line"></div>

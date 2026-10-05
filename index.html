@@ -283,6 +283,24 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
   .hero-side-r{left:calc(50% + var(--cover-half) + 28px);transform:translateY(-50%);}
   .hero-stage{--cover-half:calc(min(calc((100vh - 96px) * 3 / 4), calc(100vw - 140px)) / 2);}
 }
+/* ── DESKTOP ≥1024: magazine spread + shared container ── */
+@media(min-width:1024px){
+  :root{--container:min(1280px, 100vw - 8vw);}
+  #hero, #about, #career, #archive, #contact{
+    padding-left:calc((100% - var(--container)) / 2);
+    padding-right:calc((100% - var(--container)) / 2);
+  }
+  #hero{
+    display:grid;grid-template-columns:auto 1fr;column-gap:6vw;align-items:end;
+    padding-top:72px;padding-bottom:24px;
+  }
+  .hero-stage{display:block;padding:0;}
+  .hero-cover{width:calc((100vh - 96px) * 3 / 4);}
+  .hero-cover > img{object-position:50% 0%;}
+  .hero-side{display:none;}
+  .hero-content{padding:0;margin:0;}
+  .hero-bio{max-width:520px;}
+}
 </style>
 </head>
 <body>

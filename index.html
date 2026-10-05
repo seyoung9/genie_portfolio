@@ -64,12 +64,6 @@ nav{
   transition:all 0.2s;white-space:nowrap;
 }
 .lang-btn.active{background:var(--accent);color:#0C0C0C;}
-/* ── NAV over light hero ── */
-nav{transition:background-color 0.3s, border-color 0.3s, backdrop-filter 0.3s;}
-nav .nav-logo, nav .nav-logo em, nav .nav-links li a{transition:color 0.3s, border-color 0.3s;}
-nav.on-hero{background:transparent;border-bottom-color:transparent;backdrop-filter:none;}
-nav.on-hero .nav-logo, nav.on-hero .nav-logo em, nav.on-hero .nav-links li a{color:#161414;}
-nav.on-hero .nav-links li a{border-right-color:rgba(22,20,20,0.2);}
 
 :root {
   --bg:      #0C0C0C;
@@ -95,63 +89,62 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
 
 
 
-/* HERO */
+/* HERO — magazine cover */
 #hero{
   position:relative;
-  padding-top:0;padding-left:0;padding-right:0;
-  /* sampled from profile_2026.jpg corner pixels */
-  --hero-bg:#DBDBD6;
-  --hero-bg-end:var(--hero-bg);
-  --hero-ink:#161414;
-  --genie-red:#7B1D1F;
+  padding-top:48px;padding-left:0;padding-right:0;
+  background:var(--bg);
 }
-.hero-img{
-  position:relative;
-  width:100%;
-  line-height:0;
-  padding-top:48px;
-  background:var(--hero-bg);
-}
-.hero-photo{
-  overflow:hidden;
-  /* dissolve the photo's top edge into --hero-bg (no darkening) */
-  -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 6%);
-          mask-image:linear-gradient(to bottom, transparent 0, #000 6%);
-}
-.hero-photo img{
-  width:100%;
-  height:auto;
-  display:block;
-  transition:transform 0.9s ease;
-}
-.hero-photo:hover img{transform:scale(1.03);}
-.hero-genie{
-  position:relative;
-  font-family:'Bodoni Moda',serif;font-weight:900;
-  font-size:22vw;line-height:1;letter-spacing:-0.01em;
-  color:var(--genie-red);mix-blend-mode:multiply;
-  white-space:nowrap;pointer-events:none;
-  margin:-0.5em 0 0 18px;
-}
-.hero-overlay{
-  position:relative;
-  padding:40px;line-height:normal;
-  pointer-events:none;color:var(--hero-ink);
+.hero-stage{position:relative;line-height:normal;}
+.hero-cover{
+  position:relative;overflow:hidden;
+  width:100%;aspect-ratio:3/4;
   container-type:inline-size;
 }
-.hero-fade{height:120px;background:linear-gradient(to bottom, var(--hero-bg-end), var(--bg));}
+.hero-cover > img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:50% 30%;display:block;
+  transition:transform 0.9s ease;
+}
+.hero-cover:hover > img{transform:scale(1.03);}
+/* readability: faint shade on the bottom 35% only */
+.hero-cover::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:35%;
+  background:linear-gradient(to bottom, transparent, rgba(0,0,0,0.45));
+  pointer-events:none;
+}
+.hero-genie{
+  position:absolute;z-index:2;top:6%;left:6%;right:6%;
+  font-family:'Bodoni Moda',serif;font-weight:900;
+  font-size:26.4cqw;line-height:0.78;letter-spacing:-0.01em;
+  text-align:center;white-space:nowrap;
+  color:#7B1D1F;
+  transform:scaleY(1.2);transform-origin:top center;
+  pointer-events:none;
+}
+.hero-overlay{
+  position:absolute;z-index:2;left:6%;bottom:6%;
+  pointer-events:none;color:#fff;
+}
+.hero-issue{
+  position:absolute;z-index:2;right:6%;bottom:6%;
+  font-family:'Cormorant Garamond',serif;font-weight:400;
+  font-size:max(9px, 1.7cqw);letter-spacing:0.2em;text-transform:uppercase;
+  color:#fff;white-space:nowrap;margin:0;font-variant-numeric:lining-nums;
+}
+.hero-side{display:none;}
 .hero-role{
   font-family:'Cormorant Garamond',serif;font-weight:300;
-  font-size:min(clamp(11px, 3.4vw, 18px), calc(100cqw / 25));letter-spacing:0.04em;word-spacing:0.35em;text-transform:uppercase;white-space:nowrap;overflow:visible;
-  color:var(--hero-ink);margin:0 0 12px;
+  font-size:3.1cqw;letter-spacing:0.04em;word-spacing:0.35em;text-transform:uppercase;white-space:nowrap;
+  color:rgba(255,255,255,0.95);margin:0 0 1.6cqw;
 }
-.hero-rule{width:36px;height:1px;background:var(--accent);margin:0 0 12px;border-radius:1px;}
+.hero-rule{width:36px;height:1px;background:var(--accent);margin:0 0 1.6cqw;border-radius:1px;}
 .hero-name .slash{color:var(--accent);}
-.hero-name .kr{font-family:'Pretendard',sans-serif;font-weight:200;font-size:1.35rem;}
+.hero-name .kr{font-family:'Pretendard',sans-serif;font-weight:200;font-size:0.84em;}
 .hero-name{
   font-family:'Cormorant Garamond','Pretendard',serif;font-weight:300;
-  font-size:1.6rem;letter-spacing:0.3em;line-height:1.2;
-  color:var(--hero-ink);margin:0;
+  font-size:5cqw;letter-spacing:0.22em;line-height:1.2;white-space:nowrap;
+  color:#fff;margin:0;
 }
 .hero-content{
   padding:80px 60px;margin:0 60px; /* margin = former section side padding */
@@ -236,9 +229,6 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
 .fi.v{opacity:1;transform:translateY(0);}
 
 @media(max-width:900px){
-  .hero-overlay{padding:24px;}
-  .hero-name{font-size:1.2rem;letter-spacing:0.22em;}
-  .hero-name .kr{font-size:1.05rem;}
   nav{padding:14px 16px;gap:8px;}
   
   
@@ -273,49 +263,31 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
   .nav-logo em{color:rgba(255,255,255,0.7);}
   .nav-links li a{color:rgba(255,255,255,0.7);font-size:0.68rem;}
 }
-/* ── HERO desktop: editorial split ── */
+/* ── HERO desktop: centered cover ── */
 @media(min-width:768px){
-  #hero{--hero-bg-end:#E9EAE5;}
-  .hero-img{
-    --ph:min(calc(100vh - 48px), calc(48vw * 2000 / 1499));
-    display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:1fr auto auto 1.15fr;
-    column-gap:4vw;
-    height:100vh;padding:48px 6vw 0 8vw;box-sizing:border-box;
-    /* follows the photo's edge tones top→bottom so its sides blend in */
-    background:linear-gradient(to bottom,
-      var(--hero-bg) calc(100% - var(--ph)),
-      #DEDFDA calc(100% - var(--ph) * 0.9),
-      #E2E3DE calc(100% - var(--ph) * 0.8),
-      #E6E7E3 calc(100% - var(--ph) * 0.7),
-      #E9E9E5 calc(100% - var(--ph) * 0.6),
-      var(--hero-bg-end) calc(100% - var(--ph) * 0.5));
+  .hero-stage{
+    display:flex;justify-content:center;align-items:center;
+    padding:24px 0;
   }
-  .hero-photo{
-    grid-column:2;grid-row:1 / -1;align-self:end;
-    height:var(--ph);aspect-ratio:1499/2000;
+  .hero-cover{
+    width:min(calc((100vh - 96px) * 3 / 4), calc(100vw - 140px));
   }
-  .hero-photo img{width:100%;height:100%;object-fit:contain;}
-  .hero-genie{
-    grid-column:1;grid-row:2;justify-self:end;
-    font-size:clamp(80px, 11vw, 200px);line-height:0.9;
-    margin:0 calc(-4vw - 1.6vw) 0.18em 0;
+  .hero-name{letter-spacing:0.3em;}
+  .hero-side{
+    display:block;position:absolute;top:50%;
+    writing-mode:vertical-rl;
+    font-size:11px;letter-spacing:0.3em;text-transform:uppercase;white-space:nowrap;
+    color:rgba(255,255,255,0.4);margin:0;
   }
-  .hero-overlay{
-    grid-column:1;grid-row:3;min-width:0;
-    padding:0;
-  }
-  .hero-role{font-size:min(clamp(14px,1.3vw,20px), calc((100cqw + 4vw - 12px) / 24.5));}
-  .hero-name{font-size:clamp(32px,3.6vw,56px);letter-spacing:0.3em;white-space:nowrap;}
-  .hero-name .kr{font-size:0.84em;}
-}
-@media(min-width:768px) and (max-width:1199px){
-  .hero-name{font-size:2.4vw;}
+  .hero-side-l{right:calc(50% + var(--cover-half) + 28px);transform:translateY(-50%) rotate(180deg);}
+  .hero-side-r{left:calc(50% + var(--cover-half) + 28px);transform:translateY(-50%);}
+  .hero-stage{--cover-half:calc(min(calc((100vh - 96px) * 3 / 4), calc(100vw - 140px)) / 2);}
 }
 </style>
 </head>
 <body>
 
-<nav class="on-hero">
+<nav>
   <a class="nav-logo" href="#hero">Genie <em><span data-ko="지세영" data-en="Seyoung Ji">지세영</span></em></a>
   <div class="nav-right">
     <ul class="nav-links">
@@ -334,16 +306,20 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
 
 <!-- HERO — B&W face shot -->
 <section id="hero">
-  <div class="hero-img">
-    <div class="hero-photo"><img src="assets/img/profile_2026.jpg" alt="Genie 지세영"></div>
-    <p class="hero-genie" aria-hidden="true">GENIE</p>
-    <div class="hero-overlay">
-      <div class="hero-rule"></div>
-      <p class="hero-role">Contemporary Dance Creative Producer</p>
-      <h1 class="hero-name"><span class="kr">지세영</span> <span class="slash">/</span> Genie</h1>
+  <div class="hero-stage">
+    <p class="hero-side hero-side-l" aria-hidden="true">Seoul — Australia</p>
+    <div class="hero-cover">
+      <img src="assets/img/profile_2026.jpg" alt="Genie 지세영">
+      <p class="hero-genie" aria-hidden="true">GENIE</p>
+      <div class="hero-overlay">
+        <div class="hero-rule"></div>
+        <p class="hero-role">Contemporary Dance Creative Producer</p>
+        <h1 class="hero-name"><span class="kr">지세영</span> <span class="slash">/</span> Genie</h1>
+      </div>
+      <p class="hero-issue">Portfolio 2026</p>
     </div>
+    <p class="hero-side hero-side-r" aria-hidden="true">Contemporary Dance</p>
   </div>
-  <div class="hero-fade"></div>
   <div class="hero-content">
     <div class="hero-line"></div>
     <p class="hero-bio"><span data-ko="호주 간호학사 출신의 현대무용 기획자입니다. 서울과 호주를 기반으로 활동하며 국내 지원사업 신청서 작성부터 실공연 및 정산까지 현대무용 작품 제작의 전 과정을 함께합니다. 또한 현재 시드니에서 국제 예술 교류 사업을 추진 중입니다. 한국어와 영어 이중 언어 환경에서 활동이 가능하며, 기획자이기 이전에 현대무용을 사랑하는 한 사람으로서 2023 문예총 국제무용콩쿠르 특상 수상, 2023/2024 서울국제즉흥춤축제 출연 등 무대 위에 직접 오르기도 합니다." data-en="A contemporary dance producer with a background in nursing from Australia. Based between Seoul and Sydney, she supports the full production process — from grant applications and budgeting to live performance and settlement. Currently developing an international arts exchange programme in Sydney. Bilingual in Korean and English. Beyond producing, she is a dancer herself — recipient of the 2023 Grand Prize at the Korean Arts Association International Dance Competition, and a performer at the Seoul International Improvisation Dance Festival in 2023 and 2024.">호주 간호학사 출신의 현대무용 기획자입니다. 서울과 호주를 기반으로 활동하며 국내 지원사업 신청서 작성부터 실공연 및 정산까지 현대무용 작품 제작의 전 과정을 함께합니다. 또한 현재 시드니에서 국제 예술 교류 사업을 추진 중입니다. 한국어와 영어 이중 언어 환경에서 활동이 가능하며, 기획자이기 이전에 현대무용을 사랑하는 한 사람으로서 2023 문예총 국제무용콩쿠르 특상 수상, 2023/2024 서울국제즉흥춤축제 출연 등 무대 위에 직접 오르기도 합니다.</span></p>
@@ -557,24 +533,6 @@ function setLang(lang) {
 }
 // Init
 window._lang = 'ko';
-</script>
-
-<script>
-// Transparent dark-ink header while it sits over the light hero, dark header after
-(function(){
-  const nav = document.querySelector('nav');
-  const hero = document.querySelector('.hero-img');
-  let io;
-  function watch(){
-    if (io) io.disconnect();
-    const line = Math.round(nav.offsetHeight / 2);
-    io = new IntersectionObserver(([e]) => nav.classList.toggle('on-hero', e.isIntersecting),
-      {root: document, rootMargin: `0px 0px ${-(window.innerHeight - line)}px 0px`});
-    io.observe(hero);
-  }
-  watch();
-  window.addEventListener('resize', watch);
-})();
 </script>
 </body>
 </html>

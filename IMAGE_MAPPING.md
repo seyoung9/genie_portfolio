@@ -54,3 +54,4 @@
 | img_50 | 지세영 기획PD | Genie · Creative Producer |
 | img_51 | 지세영 기획PD | Genie · Creative Producer |
 | img_52 | 지세영 기획PD | Genie · Creative Producer |
+| img_56 | 2026 Oceania-Asia Creative Arts Organisation Inc. (OACAO) 기획공연 〈사이 | The Space Between〉 Project Producer | 2026 Oceania-Asia Creative Arts Organisation Inc. (OACAO) Production 〈The Space Between〉 Project Producer |

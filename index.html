@@ -104,19 +104,17 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
   background:#E8E7EF; /* sampled from hero_2026_v3 backdrop */
 }
 .hero-cover > img{
-  position:absolute;left:0;right:0;top:14%;width:100%;height:100%;
-  object-fit:cover;object-position:50% 0%;display:block;
-  -webkit-mask-image:linear-gradient(to bottom, transparent, #000 6%);
-          mask-image:linear-gradient(to bottom, transparent, #000 6%);
+  position:absolute;top:5%;left:-3%;width:125%;height:auto;max-width:none;
+  display:block;
+  -webkit-mask-image:linear-gradient(to bottom, transparent, #000 5%);
+          mask-image:linear-gradient(to bottom, transparent, #000 5%);
   transition:transform 0.9s ease;
 }
 .hero-cover:hover > img{transform:scale(1.03);}
 /* readability: faint shade on the bottom 35% only */
 .hero-cover::after{
-  content:'';position:absolute;left:0;right:0;bottom:0;height:42%;
-  background:
-    radial-gradient(ellipse at 0% 100%, rgba(0,0,0,0.5), transparent 60%),
-    linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+  content:'';position:absolute;left:0;right:0;bottom:0;height:30%;
+  background:linear-gradient(to top, rgba(0,0,0,0.5), transparent);
   pointer-events:none;
 }
 .hero-genie{
@@ -133,6 +131,26 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
   position:absolute;z-index:2;left:6%;right:6%;bottom:6%;
   pointer-events:none;color:#fff;
   text-shadow:0 1px 12px rgba(0,0,0,0.5);
+}
+.hero-dateline{
+  position:absolute;z-index:2;top:2.6%;left:6%;right:6%;margin:0;
+  display:flex;justify-content:space-between;
+  font-family:'Cormorant Garamond',serif;font-weight:500;
+  font-size:max(8px, 1.9cqw);letter-spacing:0.24em;text-transform:uppercase;
+  color:#161414;font-variant-numeric:lining-nums;pointer-events:none;
+}
+.hero-coverlines{
+  position:absolute;z-index:2;right:6%;top:50%;margin:0;padding:0;list-style:none;
+  text-align:right;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,0.45);pointer-events:none;
+}
+.hero-coverlines li{
+  font-family:'Cormorant Garamond',serif;font-weight:500;
+  font-size:3.6cqw;line-height:1.05;letter-spacing:0.04em;text-transform:uppercase;
+  margin:0 0 3.2cqw;
+}
+.hero-coverlines li::before{
+  content:'';display:block;width:5cqw;height:2px;background:var(--accent);
+  margin:0 0 1.2cqw auto;
 }
 .hero-baseline{display:flex;justify-content:space-between;align-items:baseline;gap:4cqw;}
 .hero-issue{
@@ -339,13 +357,19 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
     <p class="hero-side hero-side-l" aria-hidden="true">Seoul — Australia</p>
     <div class="hero-cover">
       <img src="assets/img/hero_2026_v3.jpg" alt="Genie 지세영">
+      <p class="hero-dateline" aria-hidden="true"><span>Issue <span class="js-year">2026</span></span><span>Seoul — Sydney</span></p>
       <p class="hero-genie" aria-hidden="true">GENIE</p>
+      <ul class="hero-coverlines" aria-hidden="true">
+        <li>From Nurse<br>to Producer</li>
+        <li>Body ×<br>Technology</li>
+        <li>From Grant<br>to Curtain Call</li>
+      </ul>
       <div class="hero-overlay">
         <div class="hero-rule"></div>
         <p class="hero-role">Contemporary Dance Creative Producer</p>
         <div class="hero-baseline">
           <h1 class="hero-name"><span class="kr">지세영</span> <span class="slash">/</span> Genie</h1>
-          <p class="hero-issue">Portfolio 2026</p>
+          <p class="hero-issue">Portfolio <span class="js-year">2026</span></p>
         </div>
       </div>
     </div>
@@ -573,5 +597,6 @@ function setLang(lang) {
 // Init
 window._lang = 'ko';
 </script>
+<script>document.querySelectorAll('.js-year').forEach(function(el){el.textContent=new Date().getFullYear();});</script>
 </body>
 </html>

@@ -104,7 +104,7 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
 }
 .hero-cover > img{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:50% 30%;display:block;
+  object-fit:cover;object-position:50% 0%;display:block;
   transition:transform 0.9s ease;
 }
 .hero-cover:hover > img{transform:scale(1.03);}
@@ -206,7 +206,7 @@ section{padding:96px 60px;}
 /* Contact image — B&W stage photo */
 .contact-img{position:relative;overflow:hidden;}
 .contact-img img{
-  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;
+  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 50%;
   filter:grayscale(100%) brightness(0.85) contrast(1.15);
 }
 
@@ -328,7 +328,7 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
   <div class="hero-stage">
     <p class="hero-side hero-side-l" aria-hidden="true">Seoul — Australia</p>
     <div class="hero-cover">
-      <img src="assets/img/hero_2026_v2.jpg" alt="Genie 지세영">
+      <img src="assets/img/hero_2026_v3.jpg" alt="Genie 지세영">
       <p class="hero-genie" aria-hidden="true">GENIE</p>
       <div class="hero-overlay">
         <div class="hero-rule"></div>
@@ -437,7 +437,7 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
       </div>
     </div>
     <div class="contact-img fi">
-      <img src="assets/img/img_07.jpeg" alt="Genie 지세영 무대">
+      <img src="assets/img/contact_2026.jpg" alt="지세영 Genie" data-alt-ko="지세영 Genie" data-alt-en="Seyoung Ji (Genie)">
     </div>
   </div>
 </section>
@@ -519,6 +519,8 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
         <div class="arc-fi"><img src="assets/img/img_50.jpeg" loading="lazy"><div class="arc-caption"><span data-ko="지세영 기획PD" data-en="Genie · Creative Producer">지세영 기획PD</span></div></div>
         <div class="arc-fi"><img src="assets/img/img_51.jpeg" loading="lazy"><div class="arc-caption"><span data-ko="지세영 기획PD" data-en="Genie · Creative Producer">지세영 기획PD</span></div></div>
         <div class="arc-fi"><img src="assets/img/img_52.jpeg" loading="lazy"><div class="arc-caption"><span data-ko="지세영 기획PD" data-en="Genie · Creative Producer">지세영 기획PD</span></div></div>
+        <div class="arc-fi"><img src="assets/img/hero_2026_v3.jpg" loading="lazy"><div class="arc-caption"><span data-ko="지세영 기획PD" data-en="Genie · Creative Producer">지세영 기획PD</span></div></div>
+        <div class="arc-fi"><img src="assets/img/contact_2026.jpg" loading="lazy"><div class="arc-caption"><span data-ko="지세영 기획PD" data-en="Genie · Creative Producer">지세영 기획PD</span></div></div>
       </div>
     </div>
     <div style="border-top:1px solid var(--border);margin-top:40px;padding:24px 0 52px;display:flex;flex-direction:column;align-items:center;gap:8px;">
@@ -547,6 +549,9 @@ function setLang(lang) {
   });
   document.querySelectorAll('.arc-caption span[data-ko]').forEach(el => {
     el.textContent = lang === 'ko' ? el.dataset.ko : el.dataset.en;
+  });
+  document.querySelectorAll('img[data-alt-en]').forEach(el => {
+    el.alt = lang === 'ko' ? el.dataset.altKo : el.dataset.altEn;
   });
   document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');

@@ -545,6 +545,7 @@ document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
 <script>
 function setLang(lang) {
   document.querySelectorAll('[data-ko]').forEach(el => {
+    if (el.closest('.contact-label-big')) return;
     el.textContent = lang === 'ko' ? el.getAttribute('data-ko') : el.getAttribute('data-en');
   });
   document.querySelectorAll('.arc-caption span[data-ko]').forEach(el => {

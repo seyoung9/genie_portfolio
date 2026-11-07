@@ -168,6 +168,7 @@ body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--fg);li
 .hero-rule{width:5cqw;height:2px;background:var(--accent);opacity:1;margin:0 0 1.6cqw;border-radius:1px;}
 .hero-name .slash{color:var(--accent);}
 .hero-name .kr{font-family:'Pretendard',sans-serif;font-weight:200;font-size:0.84em;}
+html[lang="en"] .hero-name .kr{font-family:inherit;font-size:1em;} /* Latin name matches "Genie" */
 .hero-name{
   font-family:'Cormorant Garamond','Pretendard',serif;font-weight:300;
   font-size:7cqw;letter-spacing:0.12em;line-height:1.1;white-space:nowrap;
@@ -255,6 +256,9 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
 .fi{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s;}
 .fi.v{opacity:1;transform:translateY(0);}
 
+@media(max-width:480px){
+  html[lang="en"] .nav-logo em{display:none;}
+}
 @media(max-width:767px){
   .lang-toggle{bottom:12px;right:12px;}
 }
@@ -368,7 +372,7 @@ footer{background:#080808;color:#555;padding:22px 60px;display:flex;justify-cont
       <div class="hero-overlay">
         <div class="hero-rule"></div>
         <p class="hero-role">Contemporary Dance Creative Producer</p>
-        <h1 class="hero-name"><span class="kr">지세영</span> <span class="slash">/</span> Genie</h1>
+        <h1 class="hero-name"><span class="kr" data-ko="지세영" data-en="Seyoung Ji">지세영</span> <span class="slash">/</span> Genie</h1>
       </div>
     </div>
     <p class="hero-side hero-side-r" aria-hidden="true">Contemporary Dance</p>
@@ -590,6 +594,7 @@ function setLang(lang) {
   });
   document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.documentElement.lang = lang;
   window._lang = lang;
 }
 // Init
